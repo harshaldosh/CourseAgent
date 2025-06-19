@@ -62,6 +62,7 @@ class SupabaseDatabaseService {
         image: courseData.image,
         description: courseData.description,
         agent_course_description: courseData.agentCourseDescription,
+        agent_id: courseData.agentId || null,
         sponsored: courseData.sponsored,
         fees: courseData.fees,
         course_material_url: courseData.courseMaterialUrl || null
@@ -173,6 +174,7 @@ class SupabaseDatabaseService {
         image: courseData.image,
         description: courseData.description,
         agent_course_description: courseData.agentCourseDescription,
+        agent_id: courseData.agentId || null,
         sponsored: courseData.sponsored,
         fees: courseData.fees,
         course_material_url: courseData.courseMaterialUrl || null,
@@ -369,6 +371,7 @@ class SupabaseDatabaseService {
       image: courseData.image,
       description: courseData.description,
       agentCourseDescription: courseData.agent_course_description || '',
+      agentId: courseData.agent_id || '',
       sponsored: courseData.sponsored || false,
       fees: courseData.fees,
       courseMaterialUrl: courseData.course_material_url || '',

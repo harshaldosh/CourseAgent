@@ -95,6 +95,18 @@ const CourseOverviewSidebar: React.FC<CourseOverviewSidebarProps> = ({
               {Math.round(progressPercentage)}%
             </span>
           </div>
+
+          {course.agentId && (
+            <div className="overview-stat-row">
+              <div className="overview-stat-label">
+                <Bot className="w-5 h-5 mr-2" />
+                <span>AI Assistant</span>
+              </div>
+              <span className="overview-stat-value text-purple-600">
+                Available
+              </span>
+            </div>
+          )}
         </div>
 
         {course.courseMaterialUrl && (

@@ -13,6 +13,7 @@ type CourseFormData = {
   image: string;
   description: string;
   agentCourseDescription: string;
+  agentId: string;
   category: Course['category'];
   sponsored: boolean;
   fees: number;
@@ -27,6 +28,7 @@ const CourseAdd: React.FC = () => {
     image: '',
     description: '',
     agentCourseDescription: '',
+    agentId: '',
     category: 'Technology',
     sponsored: false,
     fees: 0,
@@ -408,6 +410,23 @@ const CourseAdd: React.FC = () => {
               <label htmlFor="sponsored" className="ml-2 block text-sm text-gray-900">
                 Sponsored Course
               </label>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Agent ID (Optional)
+              </label>
+              <input
+                type="text"
+                name="agentId"
+                value={formData.agentId}
+                onChange={handleInputChange}
+                placeholder="Enter ElevenLabs agent ID"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-responsive-sm"
+              />
+              <p className="text-xs text-gray-500 mt-1">
+                ElevenLabs agent ID for AI chat widget integration
+              </p>
             </div>
           </div>
           

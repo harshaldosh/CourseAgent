@@ -10,6 +10,17 @@ import CourseOverviewSidebar from '../components/CourseOverviewSidebar';
 import toast from 'react-hot-toast';
 import '../styles/course-enroll-detail.css';
 
+// Declare the ElevenLabs widget type for TypeScript
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'elevenlabs-convai': {
+        'agent-id': string;
+      };
+    }
+  }
+}
+
 const CourseEnrollDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -35,6 +46,25 @@ const CourseEnrollDetail: React.FC = () => {
       loadProgress(id);
     }
   }, [id]);
+
+  useEffect(() => {
+    // Load ElevenLabs widget script if course has agent ID
+    if (course?.agentId) {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
+      script.async = true;
+      script.type = 'text/javascript';
+      document.head.appendChild(script);
+
+      return () => {
+        // Cleanup script on unmount
+        const existingScript = document.querySelector('script[src="https://unpkg.com/@elevenlabs/convai-widget-embed"]');
+        if (existingScript) {
+          document.head.removeChild(existingScript);
+        }
+      };
+    }
+  }, [course?.agentId]);
 
   useEffect(() => {
     // Clear any cached data for this course
@@ -694,6 +724,11 @@ const CourseEnrollDetail: React.FC = () => {
           activeTab={activeTab}
         />
       </div>
+
+      {/* ElevenLabs Chat Widget */}
+      {course?.agentId && (
+        <elevenlabs-convai agent-id={course.agentId}></elevenlabs-convai>
+      )}
     </div>
   );
 };

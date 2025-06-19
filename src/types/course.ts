@@ -41,6 +41,7 @@ export interface Course {
   image: string;
   description: string;
   agentCourseDescription: string;
+  agentId?: string;
   sponsored: boolean;
   fees: number;
   courseMaterialUrl?: string;

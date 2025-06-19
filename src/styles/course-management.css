@@ -1,0 +1,350 @@
+/* Course Management Responsive Styles */
+
+/* Base responsive grid */
+.course-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .course-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .course-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Content table responsive */
+.content-table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content-table {
+  min-width: 600px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .content-table th,
+  .content-table td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .content-table .content-title {
+    max-width: 200px;
+  }
+}
+
+/* Chapter management responsive */
+.chapter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .chapter-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .chapter-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .chapter-actions button {
+    flex: 1;
+    min-width: 80px;
+  }
+}
+
+/* Form responsive layout */
+.form-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Content item cards */
+.content-item-card {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.video-card {
+  background-color: #dbeafe;
+}
+
+.agent-card {
+  background-color: #f3e8ff;
+}
+
+.document-card {
+  background-color: #fef3c7;
+}
+
+.special-document-card {
+  background-color: #d1fae5;
+  border: 2px solid #10b981;
+}
+
+/* Content item responsive layout */
+.content-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .content-item-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+}
+
+.content-item-fields {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .content-item-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Knowledge base responsive */
+.knowledge-base-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .knowledge-base-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .knowledge-base-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.document-card-kb {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.document-card-kb:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Special downloads section */
+.special-downloads {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  color: white;
+}
+
+.downloads-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .downloads-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .downloads-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.download-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.download-item:hover:not(.disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.download-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Progress indicators */
+.progress-ring {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 0.5rem;
+}
+
+.progress-ring-circle {
+  stroke: #10b981;
+  stroke-width: 4;
+  fill: transparent;
+  stroke-dasharray: 188.5;
+  stroke-dashoffset: 188.5;
+  transition: stroke-dashoffset 0.3s;
+}
+
+/* Responsive utilities */
+.mobile-hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-hidden {
+    display: block;
+  }
+}
+
+.desktop-hidden {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .desktop-hidden {
+    display: none;
+  }
+}
+
+/* Button responsive styles */
+.btn-responsive {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .btn-responsive {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-completed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-special {
+  background-color: #ddd6fe;
+  color: #5b21b6;
+}
+
+/* Responsive text sizing */
+.text-responsive-sm {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-sm {
+    font-size: 0.875rem;
+  }
+}
+
+.text-responsive-base {
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-base {
+    font-size: 1rem;
+  }
+}
+
+.text-responsive-lg {
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-lg {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-responsive-lg {
+    font-size: 1.25rem;
+  }
+}
+
+/* Spacing utilities */
+.space-responsive {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .space-responsive {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Card responsive padding */
+.card-responsive {
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .card-responsive {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-responsive {
+    padding: 2rem;
+  }
+}

@@ -9,7 +9,7 @@ src/pages/Courses.tsx
 src/components/CourseCard.tsx
 src/components/CourseOverviewSidebar.tsx
 src/components/SpecialDownloadsSection.tsx
-src/components/FileUpload.tsx
+
 
 src/pages/QuizResult.tsx
 src/pages/QuizTake.tsx

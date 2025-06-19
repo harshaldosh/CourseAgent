@@ -1,4 +1,4 @@
-supabase/functions/*
+
 src/pages/Landing.tsx
 src/pages/Login.tsx
 src/pages/Register.tsx
@@ -7,7 +7,6 @@ src/pages/Courses.tsx
 
 
 src/components/CourseCard.tsx
-src/components/CourseOverviewSidebar.tsx
 src/components/SpecialDownloadsSection.tsx
 
 

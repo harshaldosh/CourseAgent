@@ -32,7 +32,7 @@ class SpeechService {
       utterance.volume = 1;
 
       utterance.onend = () => resolve();
-      utterance.onerror = (event) => reject(new Error('Speech synthesis failed'));
+      //Harshal utterance.onerror = (event) => reject(new Error('Speech synthesis failed'));
 
       this.synthesis.speak(utterance);
     });

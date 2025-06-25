@@ -19,7 +19,7 @@ const CourseEdit: React.FC = () => {
     image: '',
     description: '',
     agentCourseDescription: '',
-    category: 'Technology' as const,
+    category: 'Technology',
     sponsored: false,
     fees: 0,
     courseMaterialUrl: ''

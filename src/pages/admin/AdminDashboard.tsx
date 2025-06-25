@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BookOpen, Users, DollarSign, TrendingUp, Plus, Eye, Edit, Trash2 } from 'lucide-react';
+import { BookOpen, Users, DollarSign, TrendingUp, Plus, Eye, Edit} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { dbService } from '../../services/database';
 import type { Course } from '../../types/course';

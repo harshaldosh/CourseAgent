@@ -12,7 +12,7 @@ export interface Quiz {
   title: string;
   description?: string;
   topic?: string;
-  pdfUrl?: string;
+  pdfUrl?: string ;
   totalQuestions: number;
   totalMarks: number;
   questions: QuizQuestion[];
@@ -44,7 +44,7 @@ export interface QuizFormData {
   title: string;
   description: string;
   topic: string;
-  pdfFile?: File;
+  pdfFile?: File | null;
   totalQuestions: number;
   totalMarks: number;
   evaluationPrompts: string[];

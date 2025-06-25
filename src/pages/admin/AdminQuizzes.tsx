@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Plus, Eye, Edit, Trash2, Search, FileText, Users, Calendar } from 'lucide-react';
+import { Plus, Eye, Edit, Trash2, Search, FileText, Calendar } from 'lucide-react';
 import { quizService } from '../../services/quiz';
 import type { Quiz } from '../../types/quiz';
 import toast from 'react-hot-toast';

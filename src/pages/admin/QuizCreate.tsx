@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, FileText, Plus, Trash2, Save, Wand2, Settings, AlertTriangle, Info } from 'lucide-react';
+import { ArrowLeft, Plus, Trash2, Save, Wand2, Settings, AlertTriangle, Info } from 'lucide-react';
 import { quizService } from '../../services/quiz';
 import { llmConfigService } from '../../services/llm-config';
 import type { QuizFormData, QuizQuestion } from '../../types/quiz';
@@ -198,7 +198,7 @@ const QuizCreate: React.FC = () => {
         pdfFile: generationMethod === 'pdf' ? pdfFile : undefined
       };
       
-      const quizId = await quizService.createQuiz(quizData, questions);
+      await quizService.createQuiz(quizData, questions); //harshal
       toast.success('Quiz created successfully!');
       navigate('/admin/quizzes');
       

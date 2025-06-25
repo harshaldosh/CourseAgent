@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Play, Clock, Users, DollarSign, Edit, Download, Trash2, Check, ExternalLink, Bot, Tag, Award } from 'lucide-react';
+import { ArrowLeft, Play, Clock,  DollarSign, Edit, Download, Trash2, Check, ExternalLink, Bot, Tag, Award } from 'lucide-react';
 import { dbService } from '../../services/database';
 import type { Course } from '../../types/course';
 import toast from 'react-hot-toast';

@@ -1,12 +1,9 @@
 import React from 'react';
 import { DollarSign, Clock, Play, FileText, Bot, Check, Download } from 'lucide-react';
+import type { Course } from '../types/course'; // harshal
 
 interface CourseOverviewSidebarProps {
-  course: {
-    fees: number;
-    chapters: any[];
-    courseMaterialUrl?: string;
-  };
+  course: Course;
   totalVideos: number;
   totalDocuments: number;
   totalAgents: number;

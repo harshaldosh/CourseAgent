@@ -48,4 +48,5 @@ export interface Course {
   chapters: Chapter[];
   createdAt: string;
   isEnrolled?: boolean;
+  category: string; //harshal
 }

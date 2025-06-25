@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Play, Clock, DollarSign, Download, Check, ExternalLink, Bot, X, FileText, BookOpen } from 'lucide-react';
+import { ArrowLeft, Play, Check, ExternalLink, Bot, X, FileText, BookOpen } from 'lucide-react';
 import { dbService } from '../services/database';
 import { enrollmentService } from '../services/enrollment';
 import type { Course } from '../types/course';

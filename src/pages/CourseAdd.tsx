@@ -41,7 +41,7 @@ const CourseAdd: React.FC = () => {
   const [documentFiles, setDocumentFiles] = useState<Map<string, File>>(new Map());
   const [expandedChapters, setExpandedChapters] = useState<Set<string>>(new Set());
 
-  const categories = ['Technology', 'Project Management', 'Finance', 'Sustainability'] as const;
+  const categories = ['Technology', 'Project Management', 'Finance', 'Sustainability'] ;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;

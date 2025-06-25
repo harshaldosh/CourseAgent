@@ -122,7 +122,9 @@ const CourseEdit: React.FC = () => {
       title: '',
       description: '',
       videos: [],
-      agents: []
+      agents: [],
+      documents: [] //Harshal
+
     };
     setChapters(prev => [...prev, newChapter]);
     setExpandedChapters(prev => new Set([...prev, newChapter.id]));

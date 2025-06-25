@@ -1,5 +1,5 @@
 import { supabase } from '../lib/supabase';
-import type { Course, Chapter, Video, Agent, Document } from '../types/course';
+import type { Course } from '../types/course';
 
 class SupabaseDatabaseService {
   async getAllCourses(): Promise<Course[]> {
@@ -26,7 +26,7 @@ class SupabaseDatabaseService {
 
   async getCourseById(id: string): Promise<Course | null> {
     // Add cache-busting timestamp to ensure fresh data
-    const timestamp = Date.now();
+    // const timestamp = Date.now();
     
     const { data: course, error } = await supabase
       .from('courses')
@@ -65,7 +65,8 @@ class SupabaseDatabaseService {
         agent_id: courseData.agentId || null,
         sponsored: courseData.sponsored,
         fees: courseData.fees,
-        course_material_url: courseData.courseMaterialUrl || null
+        course_material_url: courseData.courseMaterialUrl || null,
+        category: courseData.category
       })
       .select()
       .single();
@@ -178,7 +179,8 @@ class SupabaseDatabaseService {
         sponsored: courseData.sponsored,
         fees: courseData.fees,
         course_material_url: courseData.courseMaterialUrl || null,
-        updated_at: new Date().toISOString()
+        updated_at: new Date().toISOString(),
+        category: courseData.category
       })
       .eq('id', id);
 
@@ -372,6 +374,7 @@ class SupabaseDatabaseService {
       description: courseData.description,
       agentCourseDescription: courseData.agent_course_description || '',
       agentId: courseData.agent_id || '',
+      category: courseData.category || 'Technology',
       sponsored: courseData.sponsored || false,
       fees: courseData.fees,
       courseMaterialUrl: courseData.course_material_url || '',

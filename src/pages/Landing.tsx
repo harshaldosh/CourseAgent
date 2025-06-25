@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Users, Award, Star, ArrowRight, Play, Zap } from 'lucide-react';
+import '../styles/LandingPage.css';
 
 const Landing: React.FC = () => {
   const features = [
@@ -84,15 +85,31 @@ const Landing: React.FC = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-indigo-100 py-12 sm:py-16 lg:py-20">
+      <section className="hero-section py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
+              {/* Bolt Logo */}
+              <div className="mb-6">
+                <a 
+                  href="https://bolt.new/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <img 
+                    src="/black_circle_360x360 (1).png" 
+                    alt="Powered by Bolt.new" 
+                    className="bolt-logo w-16 h-16 sm:w-20 sm:h-20"
+                  />
+                </a>
+              </div>
+
+              <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Learn Skills That
                 <span className="text-primary-600"> Matter</span>
               </h1>
-              <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
+              <p className="hero-subtitle text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
                 Join thousands of learners who are advancing their careers with our expert-led courses. 
                 Start your journey today and unlock your potential.
               </p>
@@ -145,7 +162,7 @@ const Landing: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 mb-2">{stat.number}</div>
+                <div className="stat-number text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">{stat.number}</div>
                 <div className="text-sm sm:text-base text-gray-600">{stat.label}</div>
               </div>
             ))}
@@ -167,7 +184,7 @@ const Landing: React.FC = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div key={index} className="feature-card bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl">
                 <div className="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                   <feature.icon className="w-8 h-8 text-primary-600" />
                 </div>
@@ -211,7 +228,7 @@ const Landing: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-primary-600">
+      <section className="cta-section py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Start Your Learning Journey?

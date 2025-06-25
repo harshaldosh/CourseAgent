@@ -1,0 +1,58 @@
+/* Landing Page Specific Styles */
+
+/* Hero section optimizations */
+.hero-section {
+  background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
+}
+
+/* Bolt logo styling */
+.bolt-logo {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.bolt-logo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Feature cards hover effects */
+.feature-card {
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Stats animation */
+.stat-number {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* CTA section gradient */
+.cta-section {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+/* Responsive optimizations */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.75rem;
+    line-height: 1.1;
+  }
+}

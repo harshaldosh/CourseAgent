@@ -1,4 +1,17 @@
 
+# Ignore node_modules
+node_modules/
+
+# Ignore build artifacts
+dist/
+build/
+
+# Ignore logs
+*.log
+logs/
+
+
+# Front Pages
 src/pages/Landing.tsx
 src/pages/Login.tsx
 src/pages/Register.tsx
@@ -6,12 +19,73 @@ src/pages/Dashboard.tsx
 src/pages/Courses.tsx
 
 
-src/components/CourseCard.tsx
-src/components/SpecialDownloadsSection.tsx
+# Ignore specific files
+src/assets/react.svg
+# AdminPages
+ src/components/layout/AdminHeader.tsx
+ src/components/layout/AdminLayout.tsx
+ src/components/layout/AdminSidebar.tsx
+ src/components/AuthRedirect.tsx
+# Course
+ src/components/CourseCard.tsx
+ src/components/CourseOverviewSidebar.tsx
+ src/components/FileUpload.tsx
+
+# EnrollCourse
+ src/components/KnowledgeBaseModal.tsx
+ src/components/SpecialDownloadsSection.tsx
+ src/contexts/AuthContext.tsx
+
+# Pages Admin
+ src/pages/admin/AdminCourseDetail.tsx
+ src/pages/admin/AdminCourses.tsx
+ src/pages/admin/AdminDashboard.tsx
+ src/pages/admin/CourseEdit.tsx
+ src/pages/CourseAdd.tsx
+
+src/pages/admin/QuizCreate.tsx
+src/pages/admin/AdminQuizzes.tsx
+
+
+# Course Pages
+ src/pages/CourseDetail.tsx
+ src/pages/CourseEdit.tsx
+ src/pages/CourseEnrollDetail.tsx
+ src/pages/Courses.tsx
+ Course Styles
+ src/styles/course-enroll-detail.css
+ src/styles/course-management.css
+
+
+# Quiz Pages`
+# src/pages/QuizResult.tsx
+# src/pages/QuizTake.tsx
+
+# Database
+# src/lib/database.types.ts
+# src/lib/storage.ts
+# src/lib/supabase.ts
+# supabase/*
+
+
 
 
 src/pages/QuizResult.tsx
-src/pages/QuizTake.tsx
-src/pages/admin/QuizCreate.tsx
-src/pages/admin/AdminQuizzes.tsx
+# src/pages/QuizTake.tsx
+# src/pages/admin/QuizCreate.tsx
+# src/pages/admin/AdminQuizzes.tsx
+
+package-lock.json
+
+# Specific to NestJS/TypeScript compilation
+tsconfig.tsbuildinfo
+
+# Specific to Next.js caching
+.next/cache/
+
+
+
+
+
+
 

@@ -12,10 +12,10 @@ logs/
 
 
 # Front Pages
-src/pages/Landing.tsx
-src/pages/Login.tsx
-src/pages/Register.tsx
-src/pages/Dashboard.tsx
+#src/pages/Landing.tsx
+#src/pages/Login.tsx
+#src/pages/Register.tsx
+#src/pages/Dashboard.tsx
 src/pages/Courses.tsx
 
 
@@ -58,22 +58,22 @@ src/pages/admin/AdminQuizzes.tsx
 
 
 # Quiz Pages`
-# src/pages/QuizResult.tsx
-# src/pages/QuizTake.tsx
+ src/pages/QuizResult.tsx
+ src/pages/QuizTake.tsx
 
 # Database
-# src/lib/database.types.ts
-# src/lib/storage.ts
-# src/lib/supabase.ts
-# supabase/*
+ src/lib/database.types.ts
+ src/lib/storage.ts
+ src/lib/supabase.ts
+ supabase/*
 
 
 
 
 src/pages/QuizResult.tsx
-# src/pages/QuizTake.tsx
-# src/pages/admin/QuizCreate.tsx
-# src/pages/admin/AdminQuizzes.tsx
+ src/pages/QuizTake.tsx
+ src/pages/admin/QuizCreate.tsx
+ src/pages/admin/AdminQuizzes.tsx
 
 package-lock.json
 

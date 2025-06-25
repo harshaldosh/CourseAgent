@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Users, Award, Star, ArrowRight, Play } from 'lucide-react';
+import { BookOpen, Users, Award, Star, ArrowRight, Play, Zap } from 'lucide-react';
 
 const Landing: React.FC = () => {
   const features = [
@@ -84,27 +84,27 @@ const Landing: React.FC = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-indigo-100 py-20">
+      <section className="bg-gradient-to-br from-primary-50 to-indigo-100 py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Learn Skills That
                 <span className="text-primary-600"> Matter</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
                 Join thousands of learners who are advancing their careers with our expert-led courses. 
                 Start your journey today and unlock your potential.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link
                   to="/register"
-                  className="bg-primary-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 transition-colors flex items-center justify-center"
+                  className="bg-primary-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-primary-700 transition-colors flex items-center justify-center"
                 >
                   Start Learning Today
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
-                <button className="border border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors flex items-center justify-center">
+                <button className="border border-gray-300 text-gray-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-gray-50 transition-colors flex items-center justify-center">
                   <Play className="w-5 h-5 mr-2" />
                   Watch Demo
                 </button>
@@ -112,14 +112,14 @@ const Landing: React.FC = () => {
             </div>
             
             <div className="relative">
-              <div className="bg-white rounded-2xl shadow-2xl p-8">
-                <div className="aspect-video bg-gray-100 rounded-lg mb-6 flex items-center justify-center">
+              <div className="bg-white rounded-2xl shadow-2xl p-4 sm:p-6 lg:p-8">
+                <div className="aspect-video bg-gray-100 rounded-lg mb-4 sm:mb-6 flex items-center justify-center">
                   <Play className="w-16 h-16 text-primary-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                   Featured Course: Web Development Masterclass
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-sm sm:text-base text-gray-600 mb-4">
                   Learn modern web development from scratch with hands-on projects.
                 </p>
                 <div className="flex items-center justify-between">
@@ -131,7 +131,7 @@ const Landing: React.FC = () => {
                     </div>
                     <span className="text-sm text-gray-600 ml-2">(4.9)</span>
                   </div>
-                  <span className="text-2xl font-bold text-primary-600">$99</span>
+                  <span className="text-xl sm:text-2xl font-bold text-primary-600">$99</span>
                 </div>
               </div>
             </div>
@@ -140,13 +140,13 @@ const Landing: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-primary-600 mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 mb-2">{stat.number}</div>
+                <div className="text-sm sm:text-base text-gray-600">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -154,25 +154,25 @@ const Landing: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Why Choose EduSaaS?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               We provide everything you need to succeed in your learning journey with cutting-edge technology and expert guidance.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                   <feature.icon className="w-8 h-8 text-primary-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -180,29 +180,29 @@ const Landing: React.FC = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               What Our Students Say
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600">
               Don't just take our word for it - hear from our successful students.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8">
+              <div key={index} className="bg-gray-50 rounded-xl p-6 sm:p-8">
                 <div className="flex text-yellow-400 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.content}"</p>
+                <p className="text-sm sm:text-base text-gray-700 mb-6 italic">"{testimonial.content}"</p>
                 <div>
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-gray-600">{testimonial.role}</div>
+                  <div className="text-sm sm:text-base font-semibold text-gray-900">{testimonial.name}</div>
+                  <div className="text-sm text-gray-600">{testimonial.role}</div>
                 </div>
               </div>
             ))}
@@ -211,24 +211,24 @@ const Landing: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary-600">
+      <section className="py-12 sm:py-16 lg:py-20 bg-primary-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Start Your Learning Journey?
           </h2>
-          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-primary-100 mb-6 sm:mb-8 max-w-2xl mx-auto">
             Join thousands of students who are already advancing their careers with our courses.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link
               to="/register"
-              className="bg-white text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="bg-white text-primary-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Get Started Free
             </Link>
             <Link
               to="/courses"
-              className="border border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-700 transition-colors"
+              className="border border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-primary-700 transition-colors"
             >
               Browse Courses
             </Link>
@@ -237,22 +237,22 @@ const Landing: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             <div>
               <div className="flex items-center mb-4">
                 <BookOpen className="w-8 h-8 text-primary-400 mr-2" />
-                <span className="text-2xl font-bold">EduSaaS</span>
+                <span className="text-xl sm:text-2xl font-bold">EduSaaS</span>
               </div>
-              <p className="text-gray-400">
+              <p className="text-sm sm:text-base text-gray-400">
                 Empowering learners worldwide with quality education and expert instruction.
               </p>
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Platform</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-base sm:text-lg font-semibold mb-4">Platform</h3>
+              <ul className="space-y-2 text-sm sm:text-base text-gray-400">
                 <li><Link to="/courses" className="hover:text-white">Courses</Link></li>
                 <li><Link to="/instructors" className="hover:text-white">Instructors</Link></li>
                 <li><Link to="/pricing" className="hover:text-white">Pricing</Link></li>
@@ -261,8 +261,8 @@ const Landing: React.FC = () => {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-base sm:text-lg font-semibold mb-4">Support</h3>
+              <ul className="space-y-2 text-sm sm:text-base text-gray-400">
                 <li><Link to="/help" className="hover:text-white">Help Center</Link></li>
                 <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
                 <li><Link to="/community" className="hover:text-white">Community</Link></li>
@@ -271,8 +271,8 @@ const Landing: React.FC = () => {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Legal</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-base sm:text-lg font-semibold mb-4">Legal</h3>
+              <ul className="space-y-2 text-sm sm:text-base text-gray-400">
                 <li><Link to="/privacy" className="hover:text-white">Privacy Policy</Link></li>
                 <li><Link to="/terms" className="hover:text-white">Terms of Service</Link></li>
                 <li><Link to="/cookies" className="hover:text-white">Cookie Policy</Link></li>
@@ -280,8 +280,22 @@ const Landing: React.FC = () => {
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 EduSaaS. All rights reserved.</p>
+          <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-sm text-gray-400 text-center sm:text-left">&copy; 2025 EduSaaS. All rights reserved.</p>
+              <div className="flex items-center text-gray-400">
+                <span className="text-sm mr-2">Built with</span>
+                <a 
+                  href="https://bolt.new" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center text-sm hover:text-white transition-colors"
+                >
+                  <Zap className="w-4 h-4 mr-1" />
+                  Bolt
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

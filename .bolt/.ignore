@@ -42,9 +42,8 @@ src/assets/react.svg
  src/pages/admin/AdminDashboard.tsx
  src/pages/admin/CourseEdit.tsx
  src/pages/CourseAdd.tsx
-
-src/pages/admin/QuizCreate.tsx
-src/pages/admin/AdminQuizzes.tsx
+ src/pages/admin/QuizCreate.tsx
+ src/pages/admin/AdminQuizzes.tsx
 
 
 # Course Pages
@@ -69,12 +68,8 @@ src/pages/admin/AdminQuizzes.tsx
 
 
 
-
-src/pages/QuizResult.tsx
- src/pages/QuizTake.tsx
- src/pages/admin/QuizCreate.tsx
- src/pages/admin/AdminQuizzes.tsx
-
+ 
+ 
 package-lock.json
 
 # Specific to NestJS/TypeScript compilation

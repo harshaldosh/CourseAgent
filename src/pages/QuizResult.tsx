@@ -450,9 +450,7 @@ const QuizResult: React.FC = () => {
               <p className="text-gray-600">
                 Discuss your quiz results with our AI coach. Click the send buttons next to each section above to share specific feedback with your coach.
               </p>
-              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                
-              </div>
+              
               {dailyCallObject && (
                 <div className="text-sm text-green-600 bg-green-50 p-2 rounded">
                   ✓ Direct message sending enabled - use the send buttons above to share your results

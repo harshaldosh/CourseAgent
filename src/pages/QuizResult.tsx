@@ -108,8 +108,8 @@ const QuizResult: React.FC = () => {
         throw new Error('Daily.js library not loaded');
       }
       // Draggable
-      const myContainer = document.createElement('div');
-      myContainer.id = 'daily-call-container';
+      const myContainer = document.getElementById('daily-call-container');
+      
       // Add some basic styling to the container for visibility and to enable dragging
       myContainer.style.width = '400px';
       myContainer.style.height = '300px';
@@ -122,10 +122,9 @@ const QuizResult: React.FC = () => {
       myContainer.style.cursor = 'grab'; // Indicate it's draggable
       
       document.body.appendChild(myContainer); // Add the container to your page
-
+     
       // Draggable Ends
-      const callFrame = window.Daily.createFrame({
-        parentEl: myContainer,
+      const callFrame = window.Daily.createFrame(myContainer, {
         url: url,
         showLeaveButton: true,
         showFullscreenButton: false,

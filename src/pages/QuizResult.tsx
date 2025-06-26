@@ -502,7 +502,6 @@ const QuizResult: React.FC = () => {
             </div>
           </div>
         </div>
-
         {/* Actions */}
         <div className="flex justify-center space-x-4">
           <button

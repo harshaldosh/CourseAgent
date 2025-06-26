@@ -126,7 +126,7 @@ const QuizResult: React.FC = () => {
       
       // Draggable Ends
       const callFrame = window.Daily.createFrame(myContainer, {
-      const callFrame = window.Daily.createFrame({
+      //const callFrame = window.Daily.createFrame({
         url: url,
         showLeaveButton: true,
         showFullscreenButton: false,

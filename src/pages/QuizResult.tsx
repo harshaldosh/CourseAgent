@@ -280,7 +280,6 @@ const QuizResult: React.FC = () => {
       {/*Start of Result*/}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Score Overview */}
-      <div className="bg-white rounded-lg shadow-md p-6 sm:p-8 text-center">
       <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start mb-4 sm:mb-6">
         <div className="mb-4 sm:mb-0 sm:mr-6">
           <Award className={`w-12 h-12 sm:w-16 sm:h-16 ${getGradeColor(percentage)} mx-auto sm:mx-0`} />

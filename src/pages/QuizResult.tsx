@@ -458,7 +458,7 @@ const QuizResult: React.FC = () => {
               )}
             </div>
           ) : (
-            <div className="text-center py-8">
+            <div className="text-center space-y-4">
               <Video className="w-12 h-12 text-gray-400 mx-auto mb-4" />
               <p className="text-gray-600 mb-4">
                 Connect with our AI coach to get personalized feedback on your quiz performance and guidance for improvement.

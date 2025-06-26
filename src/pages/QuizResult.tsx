@@ -280,40 +280,43 @@ const QuizResult: React.FC = () => {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Score Overview */}
-        <div className="bg-white rounded-lg shadow-md p-8 text-center">
-          <div className="mb-6">
-            <div className={`text-6xl font-bold ${getGradeColor(percentage)} mb-2`}>
-              {percentage}%
-            </div>
-            <div className={`text-2xl font-semibold ${getGradeColor(percentage)} mb-4`}>
-              Grade: {getGrade(percentage)}
-            </div>
-            <div className="text-gray-600">
-              {evaluationResult.score} out of {attempt.totalMarks} marks
-            </div>
-          </div>
+        HTML
 
-          <div className="flex items-center justify-center mb-6">
-            <Award className={`w-16 h-16 ${getGradeColor(percentage)}`} />
-          </div>
+<div className="bg-white rounded-lg shadow-md p-6 sm:p-8 text-center">
+  <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start mb-4 sm:mb-6">
+    <div className="mb-4 sm:mb-0 sm:mr-6">
+      <Award className={`w-12 h-12 sm:w-16 sm:h-16 ${getGradeColor(percentage)} mx-auto sm:mx-0`} />
+    </div>
+    <div>
+      <div className={`text-5xl sm:text-6xl font-bold ${getGradeColor(percentage)} mb-1`}>
+        {percentage}%
+      </div>
+      <div className={`text-xl sm:text-2xl font-semibold ${getGradeColor(percentage)} mb-2`}>
+        Grade: {getGrade(percentage)}
+      </div>
+      <div className="text-gray-600 text-sm sm:text-base">
+        {evaluationResult.score} out of {attempt.totalMarks} marks
+      </div>
+    </div>
+  </div>
 
-          <div className="bg-gray-100 rounded-full h-4 mb-4">
-            <div 
-              className={`h-4 rounded-full transition-all duration-1000 ${
-                percentage >= 90 ? 'bg-green-500' :
-                percentage >= 80 ? 'bg-blue-500' :
-                percentage >= 70 ? 'bg-yellow-500' :
-                percentage >= 60 ? 'bg-orange-500' : 'bg-red-500'
-              }`}
-              style={{ width: `${percentage}%` }}
-            ></div>
-          </div>
+  <div className="bg-gray-100 rounded-full h-3 sm:h-4 mb-3 sm:mb-4">
+    <div
+      className={`h-3 sm:h-4 rounded-full transition-all duration-1000 ${
+        percentage >= 90 ? 'bg-green-500' :
+        percentage >= 80 ? 'bg-blue-500' :
+        percentage >= 70 ? 'bg-yellow-500' :
+        percentage >= 60 ? 'bg-orange-500' : 'bg-red-500'
+      }`}
+      style={{ width: `${percentage}%` }}
+    ></div>
+  </div>
 
-          <p className="text-gray-600">
-            Completed on {new Date(attempt.completedAt!).toLocaleDateString()} at{' '}
-            {new Date(attempt.completedAt!).toLocaleTimeString()}
-          </p>
-        </div>
+  <p className="text-gray-600 text-xs sm:text-sm">
+    Completed on {new Date(attempt.completedAt!).toLocaleDateString()} at{' '}
+    {new Date(attempt.completedAt!).toLocaleTimeString()}
+  </p>
+</div>
 
         {/* Detailed Feedback */}
         <div className="bg-white rounded-lg shadow-md p-8">

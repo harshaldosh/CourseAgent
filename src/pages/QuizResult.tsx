@@ -107,8 +107,25 @@ const QuizResult: React.FC = () => {
       if (!window.Daily) {
         throw new Error('Daily.js library not loaded');
       }
+      // Draggable
+      const myContainer = document.createElement('div');
+      myContainer.id = 'daily-call-container';
+      // Add some basic styling to the container for visibility and to enable dragging
+      myContainer.style.width = '400px';
+      myContainer.style.height = '300px';
+      myContainer.style.border = '2px solid blue';
+      myContainer.style.resize = 'both'; // Make it resizable for testing
+      myContainer.style.overflow = 'auto'; // To see scrollbars if content overflows
+      myContainer.style.position = 'absolute'; // Or 'relative' if it's within a flow
+      myContainer.style.top = '50px';
+      myContainer.style.left = '50px';
+      myContainer.style.cursor = 'grab'; // Indicate it's draggable
+      
+      document.body.appendChild(myContainer); // Add the container to your page
 
+      // Draggable Ends
       const callFrame = window.Daily.createFrame({
+        parentEl: myContainer,
         url: url,
         showLeaveButton: true,
         showFullscreenButton: false,

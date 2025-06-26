@@ -122,7 +122,8 @@ const QuizResult: React.FC = () => {
       myContainer.style.cursor = 'grab'; // Indicate it's draggable
       
       document.body.appendChild(myContainer); // Add the container to your page
-     
+
+      
       // Draggable Ends
       const callFrame = window.Daily.createFrame(myContainer, {
         url: url,

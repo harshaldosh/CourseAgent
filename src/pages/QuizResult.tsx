@@ -277,8 +277,44 @@ const QuizResult: React.FC = () => {
           </div>
         </div>
       </div>
-      {/*Start of Result*/}
-      
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        {/* Score Overview */}
+        <div className="bg-white rounded-lg shadow-md p-8 text-center">
+          <div className="mb-6">
+            <div className={`text-6xl font-bold ${getGradeColor(percentage)} mb-2`}>
+              {percentage}%
+            </div>
+            <div className={`text-2xl font-semibold ${getGradeColor(percentage)} mb-4`}>
+              Grade: {getGrade(percentage)}
+            </div>
+            <div className="text-gray-600">
+              {evaluationResult.score} out of {attempt.totalMarks} marks
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center mb-6">
+            <Award className={`w-16 h-16 ${getGradeColor(percentage)}`} />
+          </div>
+
+          <div className="bg-gray-100 rounded-full h-4 mb-4">
+            <div 
+              className={`h-4 rounded-full transition-all duration-1000 ${
+                percentage >= 90 ? 'bg-green-500' :
+                percentage >= 80 ? 'bg-blue-500' :
+                percentage >= 70 ? 'bg-yellow-500' :
+                percentage >= 60 ? 'bg-orange-500' : 'bg-red-500'
+              }`}
+              style={{ width: `${percentage}%` }}
+            ></div>
+          </div>
+
+          <p className="text-gray-600">
+            Completed on {new Date(attempt.completedAt!).toLocaleDateString()} at{' '}
+            {new Date(attempt.completedAt!).toLocaleTimeString()}
+          </p>
+        </div>
+
         {/* Detailed Feedback */}
         <div className="bg-white rounded-lg shadow-md p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Feedback</h2>
@@ -414,7 +450,9 @@ const QuizResult: React.FC = () => {
               <p className="text-gray-600">
                 Discuss your quiz results with our AI coach. Click the send buttons next to each section above to share specific feedback with your coach.
               </p>
-              
+              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                
+              </div>
               {dailyCallObject && (
                 <div className="text-sm text-green-600 bg-green-50 p-2 rounded">
                   ✓ Direct message sending enabled - use the send buttons above to share your results
@@ -422,7 +460,7 @@ const QuizResult: React.FC = () => {
               )}
             </div>
           ) : (
-            <div className="text-center space-y-4">
+            <div className="text-center py-8">
               <Video className="w-12 h-12 text-gray-400 mx-auto mb-4" />
               <p className="text-gray-600 mb-4">
                 Connect with our AI coach to get personalized feedback on your quiz performance and guidance for improvement.

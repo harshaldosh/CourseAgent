@@ -63,7 +63,7 @@ const Landing: React.FC = () => {
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
               <BookOpen className="w-8 h-8 text-primary-600 mr-2" />
-              <span className="text-2xl font-bold text-gray-900">EduSaaS</span>
+              <span className="text-2xl font-bold text-gray-900">EduBoost</span>
             </div>
             
             <div className="flex items-center space-x-4">
@@ -260,7 +260,7 @@ const Landing: React.FC = () => {
             <div>
               <div className="flex items-center mb-4">
                 <BookOpen className="w-8 h-8 text-primary-400 mr-2" />
-                <span className="text-xl sm:text-2xl font-bold">EduSaaS</span>
+                <span className="text-xl sm:text-2xl font-bold">EduBoost</span>
               </div>
               <p className="text-sm sm:text-base text-gray-400">
                 Empowering learners worldwide with quality education and expert instruction.

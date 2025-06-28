@@ -53,7 +53,7 @@ const Login: React.FC = () => {
         
         <div className="flex items-center justify-center mb-6">
           <BookOpen className="w-10 sm:w-12 h-10 sm:h-12 text-primary-600 mr-3" />
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">EduSaaS</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">EduBoost</h1>
         </div>
         
         <h2 className="text-center text-2xl sm:text-3xl font-bold text-gray-900">

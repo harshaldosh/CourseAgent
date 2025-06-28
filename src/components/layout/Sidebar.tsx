@@ -59,7 +59,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           {/* Logo */}
           <div className="flex items-center justify-center h-16 bg-primary-600 text-white">
             <BookOpen className="w-8 h-8 mr-2" />
-            <span className="text-xl font-bold">EduSaaS</span>
+            <span className="text-xl font-bold">EduBoost</span>
           </div>
 
           {/* Navigation */}

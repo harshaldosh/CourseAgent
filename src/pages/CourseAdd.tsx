@@ -264,13 +264,6 @@ const CourseAdd: React.FC = () => {
     setLoading(true);
     
     try {
-      // Test storage connection first
-      const storageConnected = await storageService.testConnection();
-      if (!storageConnected) {
-        toast.error('Unable to connect to storage service. Please check your connection and try again.');
-        return;
-      }
-      
       let imageUrl = formData.image;
       let materialUrl = formData.courseMaterialUrl;
       
@@ -279,27 +272,21 @@ const CourseAdd: React.FC = () => {
       
       // Upload image if file is selected
       if (imageFile) {
-        toast.loading('Uploading course image...', { id: 'image-upload' });
         imageUrl = await storageService.uploadCourseImage(imageFile, tempCourseId);
-        toast.success('Course image uploaded successfully', { id: 'image-upload' });
       }
       
       // Upload course material if file is selected
       if (materialFile) {
-        toast.loading('Uploading course materials...', { id: 'material-upload' });
         materialUrl = await storageService.uploadCourseMaterial(materialFile, tempCourseId);
-        toast.success('Course materials uploaded successfully', { id: 'material-upload' });
       }
 
       // Upload files and update URLs
-      toast.loading('Processing chapter content...', { id: 'chapter-upload' });
       const updatedChapters = await Promise.all(
         chapters.map(async (chapter) => {
           const updatedVideos = await Promise.all(
             chapter.videos.map(async (video) => {
               const videoFile = videoFiles.get(video.id);
               if (videoFile) {
-                console.log(`Uploading video: ${video.title || 'Untitled'}`);
                 const videoUrl = await storageService.uploadVideo(videoFile, tempCourseId, chapter.id);
                 return { ...video, url: videoUrl };
               }
@@ -311,7 +298,6 @@ const CourseAdd: React.FC = () => {
             chapter.documents.map(async (document) => {
               const documentFile = documentFiles.get(document.id);
               if (documentFile) {
-                console.log(`Uploading document: ${document.title || 'Untitled'}`);
                 const documentUrl = await storageService.uploadCourseMaterial(documentFile, tempCourseId);
                 return { ...document, url: documentUrl };
               }
@@ -326,9 +312,7 @@ const CourseAdd: React.FC = () => {
           };
         })
       );
-      toast.success('All files uploaded successfully', { id: 'chapter-upload' });
       
-      toast.loading('Creating course...', { id: 'course-create' });
       await dbService.addCourse({
         ...formData,
         image: imageUrl,
@@ -336,20 +320,11 @@ const CourseAdd: React.FC = () => {
         chapters: updatedChapters
       });
       
-      toast.success('Course created successfully!', { id: 'course-create' });
+      toast.success('Course created successfully!');
       navigate('/admin/courses');
     } catch (error) {
       console.error('Failed to create course:', error);
-      
-      // Dismiss any loading toasts
-      toast.dismiss('image-upload');
-      toast.dismiss('material-upload');
-      toast.dismiss('chapter-upload');
-      toast.dismiss('course-create');
-      
-      // Show specific error message
-      const errorMessage = error instanceof Error ? error.message : 'Failed to create course';
-      toast.error(errorMessage);
+      toast.error('Failed to create course');
     } finally {
       setLoading(false);
     }

@@ -178,7 +178,7 @@ const QuizResult: React.FC = () => {
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      setCopiedText(text);
+      //setCopiedText(text);
       setTimeout(() => setCopiedText(''), 2000);
     } catch (err) {
       console.error('Failed to copy text:', err);

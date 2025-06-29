@@ -14,7 +14,7 @@ import Courses from './pages/Courses';
 import CourseAdd from './pages/CourseAdd';
 import CourseDetail from './pages/CourseDetail';
 import CourseEnrollDetail from './pages/CourseEnrollDetail';
-import CourseEdit from './pages/CourseEdit';
+import CourseEdit from './pages/admin/CourseEdit';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminCourses from './pages/admin/AdminCourses';
 import AdminCourseDetail from './pages/admin/AdminCourseDetail';

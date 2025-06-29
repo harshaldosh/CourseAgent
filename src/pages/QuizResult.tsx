@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, XCircle, TrendingUp, TrendingDown, Lightbulb, Award, Video, Send, Copy } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, TrendingUp, TrendingDown, Lightbulb, Award, Video, Send, Copy, Check } from 'lucide-react';
 import { quizService } from '../services/quiz';
 import type { Quiz, QuizAttempt } from '../types/quiz';
 import toast from 'react-hot-toast';
@@ -13,7 +13,7 @@ declare global {
 }
 
 interface ConversationResponse {
-
+  conversation_url: string;
   conversation_id: string;
 }
 
@@ -27,10 +27,10 @@ const QuizResult: React.FC = () => {
   // Tavus.io integration states
   const [showTavusAgent, setShowTavusAgent] = useState(false);
   const [tavusLoading, setTavusLoading] = useState(false);
-  const [setConversationUrl] = useState('');
+  const [conversationUrl, setConversationUrl] = useState('');
   const [conversationId, setConversationId] = useState('');
   const [dailyCallObject, setDailyCallObject] = useState<any>(null);
-  const [setCopiedText] = useState('');
+  const [copiedText, setCopiedText] = useState('');
 
   useEffect(() => {
     if (quizId && attemptId) {
@@ -178,8 +178,8 @@ const QuizResult: React.FC = () => {
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      //setCopiedText(text);
-     // setTimeout(() => setCopiedText(''), 2000);
+      setCopiedText(text);
+      setTimeout(() => setCopiedText(''), 2000);
     } catch (err) {
       console.error('Failed to copy text:', err);
       throw err;

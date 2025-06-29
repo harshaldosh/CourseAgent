@@ -13,7 +13,7 @@ declare global {
 }
 
 interface ConversationResponse {
-  conversation_url: string;
+
   conversation_id: string;
 }
 

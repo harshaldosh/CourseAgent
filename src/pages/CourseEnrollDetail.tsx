@@ -385,19 +385,21 @@ const CourseEnrollDetail: React.FC = () => {
 
   const totalVideos = course.chapters.reduce((acc, chapter) => acc + chapter.videos.length, 0);
   const totalAgents = course.chapters.reduce((acc, chapter) => acc + (chapter.agents || []).length, 0);
-  const totalDocuments = course.chapters.reduce((acc, chapter) => acc + (chapter.documents || []).length, 0);
+  const totalDocuments = course.chapters.reduce((acc, chapter) => acc + (chapter.documents || []).filter(doc => !doc.isSpecial).length, 0);
   const completedVideoCount = completedVideos.size;
   const completedDocumentCount = completedDocuments.size;
-  const progressPercentage = totalVideos > 0 ? (completedVideoCount / totalVideos) * 100 : 0;
+  const totalContent = totalVideos + totalDocuments;
+  const totalCompleted = completedVideoCount + completedDocumentCount;
+  const progressPercentage = totalContent > 0 ? (totalCompleted / totalContent) * 100 : 0;
 
   const specialDocuments = getSpecialDocuments();
   const allDocuments = getAllDocuments();
 
   return (
-    <div className="course-enroll-layout space-y-6">
+    <div className="enrolllayout space-y-6">
       {/* Header */}
-      <div className="course-enroll-header">
-        <div className="course-enroll-title-section">
+      <div className="enrollheader">
+        <div className="enrolltitle">
           <button
             onClick={() => navigate('/courses')}
             className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
@@ -405,15 +407,15 @@ const CourseEnrollDetail: React.FC = () => {
             <ArrowLeft className="w-6 h-6" />
           </button>
           <div>
-            <h1 className="text-responsive-lg-enhanced font-bold text-gray-900">{course.title}</h1>
-            <p className="text-gray-600 mt-2 text-responsive-enhanced">Enrolled Course</p>
+            <h1 className="enrolltitletext">{course.title}</h1>
+            <p className="enrollsubtitle">Enrolled Course</p>
           </div>
         </div>
         
-        <div className="course-enroll-actions">
+        <div className="enrollactions">
           <button
             onClick={() => setShowKnowledgeBase(!showKnowledgeBase)}
-            className="btn-responsive-enhanced bg-blue-600 text-white hover:bg-blue-700"
+            className="enrollbtn bg-blue-600 text-white hover:bg-blue-700"
           >
             <BookOpen className="w-4 h-4 mr-2" />
             Knowledge Base
@@ -421,7 +423,7 @@ const CourseEnrollDetail: React.FC = () => {
           <button
             onClick={refreshCourse}
             disabled={loading}
-            className="btn-responsive-enhanced bg-green-600 text-white hover:bg-green-700 disabled:opacity-50"
+            className="enrollbtn bg-green-600 text-white hover:bg-green-700 disabled:opacity-50"
           >
             {loading ? 'Refreshing...' : 'Refresh Content'}
           </button>
@@ -430,17 +432,17 @@ const CourseEnrollDetail: React.FC = () => {
 
       {/* Tab Navigation */}
       {activeTab !== 'content' && (
-        <div className="tab-navigation">
-          <div className="tab-nav-content">
-            <div className="tab-back-section">
+        <div className="tabnav">
+          <div className="tabcontent">
+            <div className="tabback">
               <button
                 onClick={backToContent}
-                className="btn-responsive-enhanced text-gray-600 hover:bg-gray-100"
+                className="enrollbtn text-gray-600 hover:bg-gray-100"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Course Content
               </button>
-              <div className="text-responsive-lg-enhanced font-semibold text-gray-900">
+              <div className="tabtitle">
                 {selectedContent?.title}
               </div>
             </div>
@@ -463,15 +465,15 @@ const CourseEnrollDetail: React.FC = () => {
         onToggleCompletion={toggleDocumentCompletion}
       />
 
-      <div className="course-enroll-grid">
+      <div className="enrollgrid">
         {/* Main Content */}
         <div className="space-y-6">
           {activeTab === 'content' && (
             <>
               {/* Course Description */}
               <div className="bg-white rounded-lg shadow-md p-4 sm:p-6">
-                <h2 className="text-responsive-lg-enhanced font-semibold text-gray-900 mb-4">About This Course</h2>
-                <p className="text-gray-700 leading-relaxed text-responsive-enhanced">{course.description}</p>
+                <h2 className="sectiontitle">About This Course</h2>
+                <p className="sectiontext">{course.description}</p>
               </div>
 
               {/* Special Downloads */}
@@ -481,35 +483,35 @@ const CourseEnrollDetail: React.FC = () => {
               />
 
               {/* Course Content Table */}
-              <div className="content-table-enhanced">
-                <div className="content-table-header">
-                  <div className="content-table-title-row">
-                    <h2 className="text-responsive-lg-enhanced font-semibold text-gray-900">Course Content</h2>
-                    <div className="text-responsive-enhanced text-gray-600">
-                      {completedVideoCount} of {totalVideos} videos, {completedDocumentCount} of {totalDocuments} documents completed
+              <div className="contenttable">
+                <div className="tableheader">
+                  <div className="tabletitle">
+                    <h2 className="sectiontitle">Course Content</h2>
+                    <div className="tablestats">
+                      {totalCompleted} of {totalContent} tasks completed ({completedVideoCount}v, {completedDocumentCount}d)
                     </div>
                   </div>
-                  {totalVideos > 0 && (
-                    <div className="content-progress-bar">
+                  {totalContent > 0 && (
+                    <div className="progressbar">
                       <div 
-                        className="content-progress-fill"
+                        className="progressfill"
                         style={{ width: `${progressPercentage}%` }}
                       ></div>
                     </div>
                   )}
                 </div>
                 
-                <div className="content-table-container">
-                  <table className="content-table">
+                <div className="tablecontainer">
+                  <table className="table">
                     <thead className="bg-gray-50">
                       <tr>
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                           Content
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider mobile-hidden">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider mobilehidden">
                           Type
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider mobile-hidden">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider mobilehidden">
                           Duration
                         </th>
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -526,11 +528,11 @@ const CourseEnrollDetail: React.FC = () => {
                           {/* Chapter Header */}
                           <tr className="bg-gray-50">
                             <td colSpan={5} className="px-6 py-4">
-                              <div className="font-medium text-gray-900 text-responsive-enhanced">
+                              <div className="chaptertitle">
                                 Chapter {chapterIndex + 1}: {chapter.title}
                               </div>
                               {chapter.description && (
-                                <div className="text-xs text-gray-600 mt-1">
+                                <div className="chapterdesc">
                                   {chapter.description}
                                 </div>
                               )}
@@ -545,28 +547,28 @@ const CourseEnrollDetail: React.FC = () => {
                                   {item.type === 'video' && <Play className="w-4 h-4 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />}
                                   {item.type === 'document' && <FileText className={`w-4 h-4 mr-3 mt-0.5 flex-shrink-0 ${item.isSpecial ? 'text-green-500' : 'text-yellow-500'}`} />}
                                   {item.type === 'agent' && <Bot className="w-4 h-4 text-purple-500 mr-3 mt-0.5 flex-shrink-0" />}
-                                  <div className="min-w-0 content-title">
-                                    <div className="font-medium text-gray-900 text-responsive-enhanced">
+                                  <div className="min-w-0 itemtitle">
+                                    <div className="itemname">
                                       {chapterIndex + 1}.{itemIndex + 1} {item.title}
                                       {item.type === 'document' && item.isSpecial && <span className="ml-2 text-xs text-green-600 font-medium">(Special)</span>}
                                     </div>
                                     {item.description && (
-                                      <div className="text-xs text-gray-500 mt-1 line-clamp-2">
+                                      <div className="itemdesc">
                                         {item.description}
                                       </div>
                                     )}
                                     {item.type === 'agent' && (
-                                      <div className="text-xs text-purple-600 mt-1">
+                                      <div className="agentlabel">
                                         AI Assistant
                                       </div>
                                     )}
                                   </div>
                                 </div>
                               </td>
-                              <td className="px-6 py-4 mobile-hidden">
-                                <span className={`status-badge-enhanced ${
+                              <td className="px-6 py-4 mobilehidden">
+                                <span className={`statusbadge ${
                                   item.type === 'video' ? '' : 
-                                  item.type === 'document' && item.isSpecial ? 'status-special-enhanced' : 
+                                  item.type === 'document' && item.isSpecial ? 'statusspecial' : 
                                   item.type === 'document' ? '' : ''
                                 }`} 
                                       style={{
@@ -587,7 +589,7 @@ const CourseEnrollDetail: React.FC = () => {
                                    'Agent'}
                                 </span>
                               </td>
-                              <td className="px-6 py-4 text-responsive-enhanced text-gray-500 mobile-hidden">
+                              <td className="px-6 py-4 itemduration mobilehidden">
                                 {item.type === 'video' ? (item.duration || 'N/A') : 
                                  item.type === 'document' ? 'PDF/Doc' : 
                                  'Interactive'}
@@ -596,8 +598,8 @@ const CourseEnrollDetail: React.FC = () => {
                                 {item.type === 'video' && (
                                   <button
                                     onClick={() => toggleVideoCompletion(item.id)}
-                                    className={`status-badge-enhanced ${
-                                      completedVideos.has(item.id) ? 'status-completed-enhanced' : 'status-pending-enhanced'
+                                    className={`statusbadge ${
+                                      completedVideos.has(item.id) ? 'statuscompleted' : 'statuspending'
                                     }`}
                                   >
                                     <Check className="w-3 h-3 mr-1" />
@@ -605,15 +607,15 @@ const CourseEnrollDetail: React.FC = () => {
                                   </button>
                                 )}
                                 {item.type === 'document' && item.isSpecial && (
-                                  <span className={`status-badge-enhanced ${isChapterComplete(chapter) ? 'status-completed-enhanced' : 'status-pending-enhanced'}`}>
+                                  <span className={`statusbadge ${isChapterComplete(chapter) ? 'statuscompleted' : 'statuspending'}`}>
                                     {isChapterComplete(chapter) ? 'Unlocked' : 'Locked'}
                                   </span>
                                 )}
                                 {item.type === 'document' && !item.isSpecial && (
                                   <button
                                     onClick={() => toggleDocumentCompletion(item.id)}
-                                    className={`status-badge-enhanced ${
-                                      completedDocuments.has(item.id) ? 'status-completed-enhanced' : 'status-pending-enhanced'
+                                    className={`statusbadge ${
+                                      completedDocuments.has(item.id) ? 'statuscompleted' : 'statuspending'
                                     }`}
                                   >
                                     <Check className="w-3 h-3 mr-1" />
@@ -621,7 +623,7 @@ const CourseEnrollDetail: React.FC = () => {
                                   </button>
                                 )}
                                 {item.type === 'agent' && (
-                                  <span className="status-badge-enhanced status-available-enhanced">
+                                  <span className="statusbadge statusavailable">
                                     Available
                                   </span>
                                 )}
@@ -630,7 +632,7 @@ const CourseEnrollDetail: React.FC = () => {
                                 {item.type === 'video' && item.url && (
                                   <button
                                     onClick={() => openVideoTab(item.url, item.title, item.description || '')}
-                                    className="btn-responsive-enhanced bg-blue-600 text-white hover:bg-blue-700 text-xs"
+                                    className="enrollbtn bg-blue-600 text-white hover:bg-blue-700 text-xs"
                                   >
                                     <ExternalLink className="w-3 h-3 mr-1" />
                                     Watch
@@ -639,7 +641,7 @@ const CourseEnrollDetail: React.FC = () => {
                                 {item.type === 'document' && item.url && (
                                   <button
                                     onClick={() => openDocumentTab(item.url, item.title, item.description || '')}
-                                    className="btn-responsive-enhanced bg-yellow-600 text-white hover:bg-yellow-700 text-xs"
+                                    className="enrollbtn bg-yellow-600 text-white hover:bg-yellow-700 text-xs"
                                   >
                                     <ExternalLink className="w-3 h-3 mr-1" />
                                     View
@@ -653,7 +655,7 @@ const CourseEnrollDetail: React.FC = () => {
                                       item.conversationalContext
                                     )}
                                     disabled={creatingConversation === item.id}
-                                    className="btn-responsive-enhanced bg-purple-600 text-white hover:bg-purple-700 text-xs disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="enrollbtn bg-purple-600 text-white hover:bg-purple-700 text-xs disabled:opacity-50 disabled:cursor-not-allowed"
                                   >
                                     <Bot className="w-3 h-3 mr-1" />
                                     {creatingConversation === item.id ? 'Starting...' : 'Chat'}
@@ -684,7 +686,7 @@ const CourseEnrollDetail: React.FC = () => {
               </div>
               
               {selectedContent.description && (
-                <div className="text-gray-700 text-responsive-enhanced">
+                <div className="sectiontext">
                   <h4 className="font-medium mb-2">Description:</h4>
                   <p>{selectedContent.description}</p>
                 </div>
@@ -704,7 +706,7 @@ const CourseEnrollDetail: React.FC = () => {
               </div>
               
               {selectedContent.description && (
-                <div className="text-gray-700 text-responsive-enhanced">
+                <div className="sectiontext">
                   <h4 className="font-medium mb-2">Description:</h4>
                   <p>{selectedContent.description}</p>
                 </div>

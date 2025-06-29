@@ -12,10 +12,10 @@ logs/
 
 
 # Front Pages
-#src/pages/Landing.tsx
-#src/pages/Login.tsx
-#src/pages/Register.tsx
-#src/pages/Dashboard.tsx
+src/pages/Landing.tsx
+src/pages/Login.tsx
+src/pages/Register.tsx
+src/pages/Dashboard.tsx
 src/pages/Courses.tsx
 
 
@@ -40,8 +40,8 @@ src/assets/react.svg
  src/pages/admin/AdminCourseDetail.tsx
  src/pages/admin/AdminCourses.tsx
  src/pages/admin/AdminDashboard.tsx
- src/pages/admin/CourseEdit.tsx
- src/pages/CourseAdd.tsx
+# src/pages/admin/CourseEdit.tsx
+# src/pages/CourseAdd.tsx
  src/pages/admin/QuizCreate.tsx
  src/pages/admin/AdminQuizzes.tsx
 

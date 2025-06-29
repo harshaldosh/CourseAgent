@@ -30,7 +30,7 @@ const QuizResult: React.FC = () => {
   const [conversationUrl, setConversationUrl] = useState('');
   const [conversationId, setConversationId] = useState('');
   const [dailyCallObject, setDailyCallObject] = useState<any>(null);
-  const [copiedText, setCopiedText] = useState('');
+  const [setCopiedText] = useState('');
 
   useEffect(() => {
     if (quizId && attemptId) {

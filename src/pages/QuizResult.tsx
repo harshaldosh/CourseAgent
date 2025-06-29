@@ -27,7 +27,7 @@ const QuizResult: React.FC = () => {
   // Tavus.io integration states
   const [showTavusAgent, setShowTavusAgent] = useState(false);
   const [tavusLoading, setTavusLoading] = useState(false);
-  const [conversationUrl, setConversationUrl] = useState('');
+  const [setConversationUrl] = useState('');
   const [conversationId, setConversationId] = useState('');
   const [dailyCallObject, setDailyCallObject] = useState<any>(null);
   const [setCopiedText] = useState('');

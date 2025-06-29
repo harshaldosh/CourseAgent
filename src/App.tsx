@@ -22,6 +22,7 @@ import AdminQuizzes from './pages/admin/AdminQuizzes';
 import QuizCreate from './pages/admin/QuizCreate';
 import QuizTake from './pages/QuizTake';
 import QuizResult from './pages/QuizResult';
+import Quizzes from './pages/Quizzes';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <Route path="courses" element={<Courses />} />
               <Route path="courses/:id" element={<CourseDetail />} />
               <Route path="courses/enrolled/:id" element={<CourseEnrollDetail />} />
+              <Route path="quizzes" element={<Quizzes />} />
               <Route path="students" element={
                 <div className="p-6">
                   <h1 className="text-2xl font-bold">Students</h1>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { BookOpen, Home, Settings, Users, LogOut, Shield } from 'lucide-react';
+import { BookOpen, Home, Settings, Users, LogOut, Shield, HelpCircle } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import toast from 'react-hot-toast';
 
@@ -15,6 +15,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const menuItems = [
     { icon: Home, label: 'Dashboard', path: '/dashboard' },
     { icon: BookOpen, label: 'Courses', path: '/courses' },
+    { icon: HelpCircle, label: 'Quizzes', path: '/quizzes' },
     { icon: Users, label: 'Students', path: '/students' },
     { icon: Settings, label: 'Settings', path: '/settings' },
   ];

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, XCircle, TrendingUp, TrendingDown, Lightbulb, Award, Video, Send, Copy, Check } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, TrendingUp, TrendingDown, Lightbulb, Award, Video, Send, Copy } from 'lucide-react';
 import { quizService } from '../services/quiz';
 import type { Quiz, QuizAttempt } from '../types/quiz';
 import toast from 'react-hot-toast';

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Plus, Trash2, ArrowLeft, ChevronDown, ChevronRight, Save, Video as VideoIcon, Bot } from 'lucide-react';
 import { dbService } from '../services/database';
 import { storageService } from '../lib/storage';
-import type { Course, Chapter, Video, Agent, Document } from '../types/course';
+import type { Course, Chapter, Video, Agent } from '../types/course';
 import FileUpload from '../components/FileUpload';
 import toast from 'react-hot-toast';
 
